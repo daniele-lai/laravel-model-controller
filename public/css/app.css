@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+.container h1 {
+  text-align: center;
+  margin: 40px 0;
+}
+.container .box_movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.container .box_movies ul {
+  padding: 20px;
+}
+.container .box_movies ul li {
+  list-style: none;
+  line-height: 40px;
+}
+
+h3 {
+  padding: 30px 60px;
+}
+
+.container_show {
+  display: flex;
+  justify-content: space-around;
+}
+.container_show .container_details {
+  width: 55%;
+  text-align: center;
+  padding: 40px;
+}
+.container_show .container_details h1 {
+  margin: 20px;
+}

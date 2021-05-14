@@ -1,0 +1,21 @@
+.container {
+    width: 80%;
+    margin: auto;
+    h1 {
+        text-align: center;
+        margin: 40px 0;
+    }
+    .box_movies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        ul {
+            padding: 20px;
+
+            li {
+                list-style: none;
+                line-height: 40px;
+            }
+        }
+    }
+}
