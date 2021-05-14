@@ -8,12 +8,15 @@
 </head>
 <body>
     <h1>Quentin Tarantino Filmography</h1>
-    @foreach ($movies as $item)
+    @foreach ($movies as $movie)
         <ul>
-            <li>{{$item->title}}</li>
-            <li>Year: {{$item->year}}</li>
-            <li>Genre: {{$item->genre}}</li>
-            <li>Lenght:{{$item->lenght}}</li>
+            <li>
+                <h2>{{$movie->title}}</h2>
+            </li>
+            <li>Year: {{$movie->year}}</li>
+            <li>Genre: {{$movie->genre}}</li>
+            <li>Lenght:{{$movie->lenght}}</li>
+            <li><a href="{{route('movies.show', $movie->id)}}">Details</a></li>
         </ul>
     @endforeach
     
