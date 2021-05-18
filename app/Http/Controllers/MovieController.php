@@ -36,7 +36,21 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'title' => 'required|string|min:50',
+        //     'genre' => 'required|string|min:50',
+        //     'language' => 'required|string|min:20',
+        //     'year' => 'required|numeric|min:1992',
+        //     'lenght' => 'required|numeric|max:255',
+        //     'director' => 'required|string|min:50',
+        //     'plot' => 'required|string'
+        // ]); 
+
+        $data = $request->all();
+
+        $movieNew = Movie::create($data);
+
+        return redirect()->route('movies.index');
     }
 
     /**
@@ -57,9 +71,9 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movie $movie)
     {
-        //
+        return view('movies.edit', ['movie' => $movie]);
     }
 
     /**
@@ -69,9 +83,10 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Movie $movie)
     {
-        //
+        $movie->update($request->all());
+        return redirect()->route('movies.show', $movie);
     }
 
     /**

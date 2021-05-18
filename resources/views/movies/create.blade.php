@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="container">
+        <h1>Add a movie</h1>
         <form action="{{route('movies.store')}}" method="post">
         @csrf
         @method('POST')
@@ -31,8 +32,8 @@
                 <input type="number" class="form-control" id="year" name="year" min="1992" max="" placeholder="Enter year">
             </div>
             <div class="form-group">
-                <label for="length">Length</label>
-                <input type="number" class="form-control" id="length" name="length" placeholder="Enter length">
+                <label for="lenght">Lenght</label>
+                <input type="number" class="form-control" id="lenght" name="lenght" placeholder="Enter lenght">
             </div>
             <div class="form-group">
                 <label for="director">Director</label>

@@ -12,6 +12,7 @@
 <body>
     <div class="container">
         <h1>Quentin Tarantino Filmography</h1>
+        <a href="{{route('movies.create')}}"><button type="button" class="btn btn-success">Add a movie</button></a>
         <div class="box_movies">
             @foreach ($movies as $movie)
             <ul>
@@ -22,6 +23,7 @@
                 <li>Genre: {{$movie->genre}}</li>
                 <li>Lenght:{{$movie->lenght}}</li>
                 <li><a href="{{route('movies.show', $movie->id)}}">Details</a></li>
+                <li><a href="{{route('movies.edit', [ 'movie' => $movie->id ])}}">Modifica</a></li>
             </ul>
     @endforeach
         </div>
