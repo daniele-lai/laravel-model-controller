@@ -24,6 +24,11 @@
                 <li>Lenght:{{$movie->lenght}}</li>
                 <li><a href="{{route('movies.show', $movie->id)}}">Details</a></li>
                 <li><a href="{{route('movies.edit', [ 'movie' => $movie->id ])}}">Modifica</a></li>
+                <form action="{{route('movies.destroy', [ 'movie' => $movie->id ])}}" method="POST">
+					@csrf
+					@method('DELETE')
+					<button type="submit" class="btn btn-danger">Elimina</button>
+				</form>
             </ul>
     @endforeach
         </div>
