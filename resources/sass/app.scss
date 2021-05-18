@@ -1,5 +1,11 @@
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Import
 @import 'partials/commons';
 @import 'partials/index';
 @import 'partials/show';
-
-
