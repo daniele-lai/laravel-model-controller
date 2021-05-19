@@ -10,17 +10,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h3><a href="{{route('movies.index')}}">Home</a></h3>
-    <div class="container_show">
-        <div class="container_details">
-            <h1>{{$movies->title}}</h1>
-            <p>{{$movies->plot}}</p>
-        </div>
-        <div class="img_details">
-            <img src={{ asset('img/pngegg.png') }} alt="Pulp Fiction dance">
-        </div>
+    <div class="container mt-2">
+        <small><a href="{{route('movies.index')}}">Back to Home</a></small>
+        <h1>{{$movies->title}}</h1>
+        <p>{{$movies->plot}}</p>
     </div>
-    
-    
 </body>
 </html>

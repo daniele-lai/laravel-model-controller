@@ -12,27 +12,40 @@
 <body>
     <div class="container">
         <h1>Quentin Tarantino Filmography</h1>
-        <a href="{{route('movies.create')}}"><button type="button" class="btn btn-success">Add a movie</button></a>
-        <div class="box_movies">
-            @foreach ($movies as $movie)
-            <ul>
-                <li>
-                    <h2>{{$movie->title}}</h2>
-                </li>
-                <li>Year: {{$movie->year}}</li>
-                <li>Genre: {{$movie->genre}}</li>
-                <li>Lenght:{{$movie->lenght}}</li>
-                <li><a href="{{route('movies.show', $movie->id)}}">Details</a></li>
-                <li><a href="{{route('movies.edit', [ 'movie' => $movie->id ])}}">Modifica</a></li>
-                <form action="{{route('movies.destroy', [ 'movie' => $movie->id ])}}" method="POST">
+        <a href="{{route('movies.create')}}"><button type="button" class="btn btn-primary">Add a movie</button></a>
+        <table class="table table-hover mt-2">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Year</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Length</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                @foreach ($movies as $movie)
+                <th scope="row">{{$movie->title}}</th>
+                <td>{{$movie->year}}</td>
+                <td>{{$movie->genre}}</td>
+                <td>{{$movie->lenght}}</td>
+                <td><a href="{{route('movies.show', $movie->id)}}">Details</a></td>
+                <td>
+                    <a href="{{route('movies.edit', [ 'movie' => $movie->id ])}}">
+                        <button type="submit" class="btn btn-success">Edit</button>
+                    </a>
+                    <form action="{{route('movies.destroy', [ 'movie' => $movie->id ])}}" method="POST">
 					@csrf
 					@method('DELETE')
-					<button type="submit" class="btn btn-danger">Elimina</button>
-				</form>
-            </ul>
-    @endforeach
-        </div>
-    
+					    <button type="submit" class="btn btn-danger mt-2">Delete</button>
+				    </form>
+                </td>
+
+              </tr>
+              @endforeach 
+            </tbody>
+          </table>
     </div>
 </body>
 </html>

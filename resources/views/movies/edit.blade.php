@@ -10,8 +10,18 @@
     <title>Edit a movie</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container mb-5 mt-2">
+        <small><a href="{{route('movies.index')}}">Back to Home</a></small>
         <h1>Edit a movie</h1>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{route('movies.update', ['movie' => $movie->id])}}" method="POST">
             @csrf
             @method('PUT')

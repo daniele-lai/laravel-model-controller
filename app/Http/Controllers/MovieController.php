@@ -36,15 +36,15 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required|string|min:50',
-        //     'genre' => 'required|string|min:50',
-        //     'language' => 'required|string|min:20',
-        //     'year' => 'required|numeric|min:1992',
-        //     'lenght' => 'required|numeric|max:255',
-        //     'director' => 'required|string|min:50',
-        //     'plot' => 'required|string'
-        // ]); 
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'genre' => 'required|string|max:50',
+            'language' => 'required|string|max:20',
+            'year' => 'required|numeric|min:1992',
+            'lenght' => 'required|numeric|max:255',
+            'director' => 'required|string|max:50',
+            'plot' => 'required|string'
+        ]); 
 
         $data = $request->all();
 
@@ -85,6 +85,16 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'genre' => 'required|string|max:50',
+            'language' => 'required|string|max:20',
+            'year' => 'required|numeric|min:1992',
+            'lenght' => 'required|numeric|max:255',
+            'director' => 'required|string|max:50',
+            'plot' => 'required|string'
+        ]); 
+        
         $movie->update($request->all());
         return redirect()->route('movies.show', $movie);
     }
