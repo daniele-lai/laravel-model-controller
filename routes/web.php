@@ -14,3 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('movies', 'MovieController');
+
+Route::get('api/movies', 'Api\MovieController@index');
+
+Route::get('api/movies/{movie}', 'Api\MovieController@show');
